@@ -102,8 +102,11 @@ DEVICE_MANIFEST_SKUS := \
 DEVICE_MANIFEST_CAPE_FILES := \
     $(COMMON_PATH)/hidl/manifest_taro.xml \
     $(COMMON_PATH)/hidl/manifest_xiaomi.xml
+DEVICE_MANIFEST_UKEE_FILES := \
+    $(COMMON_PATH)/hidl/manifest_ukee.xml \
+    $(COMMON_PATH)/hidl/manifest_xiaomi.xml
 DEVICE_MANIFEST_TARO_FILES := $(DEVICE_MANIFEST_CAPE_FILES)
-DEVICE_MANIFEST_UKEE_FILES := $(DEVICE_MANIFEST_CAPE_FILES)
+DEVICE_MANIFEST_UKEE_FILES := $(DEVICE_MANIFEST_UKEE_FILES)
 
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(COMMON_PATH)/hidl/vendor_framework_compatibility_matrix.xml \
@@ -113,18 +116,18 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
 # Kernel
 # is-board-platform-in-list is used in split files below
 # from https://git.codelinaro.org/clo/la/platform/vendor/qcom-opensource/core-utils/-/blob/LA.QSSI.12.0.r1-08700.03-qssi.0/build/utils.mk
-include $(COMMON_PATH)/build/utils.mk
+#include $(COMMON_PATH)/build/utils.mk
 
-include $(COMMON_PATH)/kernel/kernel-platform-board.mk
-include vendor/qcom/opensource/audio-kernel/audio_kernel_vendor_board.mk
-include vendor/qcom/opensource/camera-kernel/board.mk
-include vendor/qcom/opensource/dataipa/dataipa_dlkm_vendor_board.mk
-include vendor/qcom/opensource/datarmnet-ext/datarmnet_ext_dlkm_vendor_board.mk
-include vendor/qcom/opensource/datarmnet/datarmnet_dlkm_vendor_board.mk
-include vendor/qcom/opensource/display-drivers/display_driver_board.mk
-include vendor/qcom/opensource/eva-kernel/eva_kernel_board.mk
-include vendor/qcom/opensource/mmrm-driver/mmrm_kernel_board.mk
-include vendor/qcom/opensource/video-driver/video_kernel_board.mk
+#include $(COMMON_PATH)/kernel/kernel-platform-board.mk
+#include vendor/qcom/opensource/audio-kernel/audio_kernel_vendor_board.mk
+#include vendor/qcom/opensource/camera-kernel/board.mk
+#include vendor/qcom/opensource/dataipa/dataipa_dlkm_vendor_board.mk
+#include vendor/qcom/opensource/datarmnet-ext/datarmnet_ext_dlkm_vendor_board.mk
+#include vendor/qcom/opensource/datarmnet/datarmnet_dlkm_vendor_board.mk
+#include vendor/qcom/opensource/display-drivers/display_driver_board.mk
+#include vendor/qcom/opensource/eva-kernel/eva_kernel_board.mk
+#include vendor/qcom/opensource/mmrm-driver/mmrm_kernel_board.mk
+#include vendor/qcom/opensource/video-driver/video_kernel_board.mk
 
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_RAMDISK_USE_LZ4 := true
@@ -149,6 +152,33 @@ BOARD_BOOTCONFIG := \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
     androidboot.selinux=permissive
+
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CONFIG := vendor/marble_defconfig
+
+BOARD_KERNEL_IMAGE_NAME := Image
+
+TARGET_FORCE_PREBUILT_KERNEL := true
+
+TARGET_PREBUILT_KERNEL := $(COMMON_PATH)/prebuilts/kernel
+BOARD_PREBUILT_DTBOIMAGE := $(COMMON_PATH)/prebuilts/dtbo.img
+
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(COMMON_PATH)/prebuilts/modules/ramdisk/*.ko)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/prebuilts/modules/ramdisk/modules.load))
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_BLOCKLIST_FILE := $(COMMON_PATH)/prebuilts/modules/ramdisk/modules.blocklist
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/prebuilts/modules/ramdisk/modules.load.recovery))
+
+PRODUCT_COPY_FILES += \
+    $(COMMON_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
+
+# Vendor_dlkm
+BOARD_VENDOR_RAMDISK_FRAGMENTS := dlkm
+BOARD_VENDOR_RAMDISK_FRAGMENT.dlkm.KERNEL_MODULE_DIRS := top
+
+BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(COMMON_PATH)/prebuilts/modules/vendor/*.ko)
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(COMMON_PATH)/prebuilts/modules/vendor/modules.load))
+BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE :=  $(COMMON_PATH)/prebuilts/modules/vendor/modules.blocklist
 
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
@@ -245,13 +275,13 @@ WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-PRODUCT_VENDOR_MOVE_ENABLED := true
-WIFI_DRIVER_INSTALL_TO_KERNEL_OUT := true
-ifneq ($(TARGET_WLAN_CHIP),)
-	BOARD_VENDOR_KERNEL_MODULES += $(foreach chip, $(TARGET_WLAN_CHIP), $(KERNEL_MODULES_OUT)/$(WLAN_CHIPSET)_$(chip).ko)
-else
-	BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/qca_cld3_wlan.ko
-endif
+#PRODUCT_VENDOR_MOVE_ENABLED := true
+#WIFI_DRIVER_INSTALL_TO_KERNEL_OUT := true
+#ifneq ($(TARGET_WLAN_CHIP),)
+#	BOARD_VENDOR_KERNEL_MODULES += $(foreach chip, $(TARGET_WLAN_CHIP), $(KERNEL_MODULES_OUT)/$(WLAN_CHIPSET)_$(chip).ko)
+#else
+#	BOARD_VENDOR_KERNEL_MODULES += $(KERNEL_MODULES_OUT)/qca_cld3_wlan.ko
+#endif
 
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB_EVENT := "ON"
 BOARD_HOSTAPD_PRIVATE_LIB_EVENT := "ON"

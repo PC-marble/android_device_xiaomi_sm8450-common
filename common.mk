@@ -56,7 +56,8 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack-V1-ndk_platform.vendor \
     android.hardware.security.keymint-V1-ndk_platform.vendor \
     android.hardware.security.secureclock-V1-ndk_platform.vendor \
-    android.hardware.security.sharedsecret-V1-ndk_platform.vendor
+    android.hardware.security.sharedsecret-V1-ndk_platform.vendor \
+    android.hardware.security.rkp-V1-ndk.vendor
 
 # ANT+
 PRODUCT_PACKAGES += \
@@ -264,17 +265,20 @@ PRODUCT_PACKAGES += \
     libjson
 
 # Kernel
-$(call inherit-product, $(LOCAL_PATH)/kernel/kernel-platform-product.mk)
-$(call inherit-product, vendor/qcom/opensource/audio-kernel/audio_kernel_product_board.mk)
-$(call inherit-product, vendor/qcom/opensource/camera-kernel/config/waipio.mk)
-$(call inherit-product, vendor/qcom/opensource/camera-kernel/product.mk)
-$(call inherit-product, vendor/qcom/opensource/dataipa/dataipa_dlkm_vendor_product.mk)
-$(call inherit-product, vendor/qcom/opensource/datarmnet-ext/datarmnet_ext_dlkm_vendor_product.mk)
-$(call inherit-product, vendor/qcom/opensource/datarmnet/datarmnet_dlkm_vendor_product.mk)
-$(call inherit-product, vendor/qcom/opensource/display-drivers/display_driver_product.mk)
-$(call inherit-product, vendor/qcom/opensource/eva-kernel/eva_kernel_product.mk)
-$(call inherit-product, vendor/qcom/opensource/mmrm-driver/mmrm_kernel_board.mk)
-$(call inherit-product, vendor/qcom/opensource/video-driver/video_kernel_board.mk)
+#$(call inherit-product, $(LOCAL_PATH)/kernel/kernel-platform-product.mk)
+#$(call inherit-product, vendor/qcom/opensource/audio-kernel/audio_kernel_product_board.mk)
+#$(call inherit-product, vendor/qcom/opensource/camera-kernel/config/waipio.mk)
+#$(call inherit-product, vendor/qcom/opensource/camera-kernel/product.mk)
+#$(call inherit-product, vendor/qcom/opensource/dataipa/dataipa_dlkm_vendor_product.mk)
+#$(call inherit-product, vendor/qcom/opensource/datarmnet-ext/datarmnet_ext_dlkm_vendor_product.mk)
+#$(call inherit-product, vendor/qcom/opensource/datarmnet/datarmnet_dlkm_vendor_product.mk)
+#$(call inherit-product, vendor/qcom/opensource/display-drivers/display_driver_product.mk)
+#$(call inherit-product, vendor/qcom/opensource/eva-kernel/eva_kernel_product.mk)
+#$(call inherit-product, vendor/qcom/opensource/mmrm-driver/mmrm_kernel_board.mk)
+#$(call inherit-product, vendor/qcom/opensource/video-driver/video_kernel_board.mk)
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/dtb:dtb.img
 
 # Keymaster
 PRODUCT_PACKAGES += \
