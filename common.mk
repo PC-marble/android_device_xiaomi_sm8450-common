@@ -56,8 +56,7 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack-V1-ndk_platform.vendor \
     android.hardware.security.keymint-V1-ndk_platform.vendor \
     android.hardware.security.secureclock-V1-ndk_platform.vendor \
-    android.hardware.security.sharedsecret-V1-ndk_platform.vendor \
-    android.hardware.security.rkp-V1-ndk.vendor
+    android.hardware.security.sharedsecret-V1-ndk_platform.vendor
 
 # ANT+
 PRODUCT_PACKAGES += \
@@ -335,7 +334,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     FrameworksResTarget_Vendor \
-    FrameworksResXiaomi \
     SettingsProviderResXiaomi \
     SettingsResXiaomi \
     WifiResTarget \
