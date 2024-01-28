@@ -132,7 +132,7 @@ synaptics_dsx.ko
 xiaomi_touch.ko
 nt36xxx-i2c.ko
 nt36xxx-spi.ko
-goodix_core.ko
+gt9916r.ko
 pm8941-pwrkey.ko
 qcom-hv-haptics.ko
 fpc1540.ko

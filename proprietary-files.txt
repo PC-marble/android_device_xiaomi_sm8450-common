@@ -1551,14 +1551,17 @@ vendor/lib/vendor.qti.ims.factory@1.0.so
 vendor/lib/vendor.qti.ims.factory@1.1.so
 vendor/lib/vendor.qti.ims.factory@2.0.so
 vendor/lib/vendor.qti.ims.factory@2.1.so
+vendor/lib/vendor.qti.ims.factory@2.2.so
 vendor/lib/vendor.qti.ims.rcsconfig@1.0.so
 vendor/lib/vendor.qti.ims.rcsconfig@1.1.so
 vendor/lib/vendor.qti.ims.rcsconfig@2.0.so
 vendor/lib/vendor.qti.ims.rcsconfig@2.1.so
 vendor/lib/vendor.qti.ims.rcssip@1.0.so
 vendor/lib/vendor.qti.ims.rcssip@1.1.so
+vendor/lib/vendor.qti.ims.rcssip@1.2.so
 vendor/lib/vendor.qti.ims.rcsuce@1.0.so
 vendor/lib/vendor.qti.ims.rcsuce@1.1.so
+vendor/lib/vendor.qti.ims.rcsuce@1.2.so
 vendor/lib/vendor.qti.imsrtpservice@3.0-service-Impl.so
 vendor/lib/vendor.qti.imsrtpservice@3.0.so
 vendor/lib64/com.qualcomm.qti.imscmservice@1.0.so
@@ -1685,14 +1688,17 @@ vendor/lib64/vendor.qti.ims.factory@1.0.so
 vendor/lib64/vendor.qti.ims.factory@1.1.so
 vendor/lib64/vendor.qti.ims.factory@2.0.so
 vendor/lib64/vendor.qti.ims.factory@2.1.so
+vendor/lib64/vendor.qti.ims.factory@2.2.so
 vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so
 vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so
 vendor/lib64/vendor.qti.ims.rcssip@1.0.so
 vendor/lib64/vendor.qti.ims.rcssip@1.1.so
+vendor/lib64/vendor.qti.ims.rcssip@1.2.so
 vendor/lib64/vendor.qti.ims.rcsuce@1.0.so
 vendor/lib64/vendor.qti.ims.rcsuce@1.1.so
+vendor/lib64/vendor.qti.ims.rcsuce@1.2.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@3.0.so
 
