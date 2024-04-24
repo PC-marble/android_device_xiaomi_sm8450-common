@@ -237,16 +237,18 @@ vendor/lib/vendor.qti.diaghal@1.0.so
 vendor/lib64/vendor.qti.diaghal@1.0.so
 
 # Display HDR
-vendor/lib/libhdr_backlight_adapter.so
-vendor/lib/libhdr_tm.so
 vendor/lib/libhdrdynamic.so
 vendor/lib/libhdrdynamicootf.so
-vendor/lib64/libhdr_backlight_adapter.so
-vendor/lib64/libhdr_tm.so
 vendor/lib64/libhdrdynamic.so
 vendor/lib64/libhdrdynamicootf.so
 
-# Display HWC
+# Display HDR - from V816.0.3.0.UNSCNXM
+vendor/lib/libhdr_backlight_adapter.so
+vendor/lib/libhdr_tm.so
+vendor/lib64/libhdr_backlight_adapter.so
+vendor/lib64/libhdr_tm.so
+
+# Display HWC - from V816.0.3.0.UNSCNXM
 vendor/bin/qdcmss
 vendor/etc/init/qdcmss.rc
 vendor/lib/libbacklight-calib.so
@@ -268,7 +270,7 @@ vendor/lib64/libqdcm-mode-parser.so
 vendor/lib64/libsnapdragoncolor-manager.so
 vendor/lib64/libsnapdragoncolor-qdcm.so
 
-# Display postprocessing
+# Display postprocessing - from V816.0.3.0.UNSCNXM
 vendor/bin/hw/vendor.display.color@1.0-service
 vendor/bin/ppd
 vendor/etc/init/vendor.display.color@1.0-service.rc
@@ -293,7 +295,7 @@ vendor/lib64/vendor.display.color@1.6.so
 vendor/lib64/vendor.display.color@1.7.so
 vendor/lib64/vendor.display.postproc@1.0.so
 
-# Display SDM
+# Display SDM - from V816.0.3.0.UNSCNXM
 vendor/etc/display/DPU660.xml
 vendor/etc/display/DPU670.xml
 vendor/etc/display/DPU720.xml
@@ -307,6 +309,7 @@ vendor/etc/display/advanced_sf_offsets.xml
 vendor/etc/display/thermallevel_to_fps.xml
 vendor/lib/libdisplayqos.so
 vendor/lib/libdisplayskuutils.so
+vendor/lib/libgame_enhance.so
 vendor/lib/libqseed3.so
 vendor/lib/librcmask.so
 vendor/lib/libsdm-color.so
@@ -317,6 +320,7 @@ vendor/lib/libtestutils.so
 vendor/lib/libtinyxml2_1.so
 vendor/lib64/libdisplayqos.so
 vendor/lib64/libdisplayskuutils.so
+vendor/lib64/libgame_enhance.so
 vendor/lib64/libqseed3.so
 vendor/lib64/librcmask.so
 vendor/lib64/libsdm-color.so
@@ -1674,7 +1678,7 @@ vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/bin/cnss-daemon
 vendor/etc/init/init.vendor.wlan.rc
 
-# WiFi Display
+# WiFi Display - from V816.0.3.0.UNSCNXM
 system/framework/WfdCommon.jar
 system_ext/bin/wfdservice
 system_ext/etc/init/wfdservice.rc
